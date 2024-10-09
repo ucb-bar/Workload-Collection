@@ -8,7 +8,7 @@ import torch
 
 from ultralytics import YOLO
 
-from depth_anything_v2 import DepthAnythingV2
+from depth_anything_v2.dpt import DepthAnythingV2
 
 
 
@@ -20,7 +20,7 @@ def load_model(encoder, device):
         'vitg': {'encoder': 'vitg', 'features': 384, 'out_channels': [1536, 1536, 1536, 1536]}
     }
     depth_anything = DepthAnythingV2(**model_configs[encoder])
-    depth_anything.load_state_dict(torch.load(f'Depth-Anything-V2/checkpoints/depth_anything_v2_{encoder}.pth', map_location='cpu'))
+    depth_anything.load_state_dict(torch.load(f"../checkpoints/depth_anything_v2_{encoder}.pth", map_location="cpu"))
     depth_anything = depth_anything.to(device).eval()
 
     return depth_anything
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     depth_anything = load_model(encoder, DEVICE)
 
     # Load a model
-    yolo_model = YOLO("yolo11l.pt")  # pretrained YOLO11n model
+    yolo_model = YOLO("../checkpoints/yolo11l.pt")  # pretrained YOLO11n model
 
     
     

@@ -24,10 +24,16 @@ pip install -r requirements.txt
 ### Install Depth Anything V2
 
 ```bash
-cd shared/
+cd ./shared/
 git clone git@github.com:T-K-233/Depth-Anything-V2.git
-cd Depth-Anything-V2/
+cd ./Depth-Anything-V2/
 pip install -e .
+```
+
+### Download Checkpoints
+
+```bash
+./scripts/download_checkpoints.sh
 ```
 
 
