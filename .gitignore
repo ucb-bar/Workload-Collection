@@ -1,5 +1,0 @@
-checkpoints/*
-!checkpoints/README.md
-
-shared/*
-!shared/README.md
